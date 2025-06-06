@@ -1,11 +1,11 @@
 # Chat StartKit
 
-A modern Flutter chat application built with Clean Architecture and Riverpod.
+A modern Flutter chat application built with Clean Architecture and the BLoC pattern.
 
 ## 🚀 Features
 
 - Clean Architecture pattern
-- Riverpod for state management
+- BLoC for state management
 - GoRouter for navigation
 - Dio for network requests
 - Dark/Light theme support
