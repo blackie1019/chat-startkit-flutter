@@ -7,7 +7,7 @@ trigger: always_on
 - Use markdown files to manage the project (README.md,ARCHITECTURE.md, TASK.md).
 - Keep files under 500 lines. Split into modules when needed.
 - Test early, test often. Every new function should have unit tests.
-- Write docs and comments as you go. Don’t delay documentation.
+- Write docs and commlents as you go. Don’t delay documentation.
 
 ## 🔄 Project Awareness & Context
 - **Always read `ARCHITECTURE.md`** at the start of a new conversation to understand the project's architecture, goals, style, and constraints.
