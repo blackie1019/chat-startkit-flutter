@@ -15,8 +15,20 @@ class WebSocketService {
 
   WebSocketService(this.url);
 
+  String _normalizeUrl(String raw) {
+    var sanitized = raw.trim();
+    if (sanitized.startsWith('https://')) {
+      sanitized = sanitized.replaceFirst('https://', 'wss://');
+    } else if (sanitized.startsWith('http://')) {
+      sanitized = sanitized.replaceFirst('http://', 'ws://');
+    }
+    sanitized = sanitized.replaceAll(RegExp(r'#.*$'), '');
+    return sanitized;
+  }
+
   Future<void> connect() async {
-    _channel = WebSocketChannel.connect(Uri.parse(url));
+    final uri = Uri.parse(_normalizeUrl(url));
+    _channel = WebSocketChannel.connect(uri);
     _channel!.stream.listen((data) {
       final decrypted = EncryptionService.decrypt(data as String);
       final jsonMap = json.decode(decrypted) as Map<String, dynamic>;

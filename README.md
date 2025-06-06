@@ -66,6 +66,8 @@ FLAVOR=development
 # API
 API_BASE_URL=https://api.example.com
 API_TIMEOUT=30000
+WEBSOCKET_URL=wss://example.com/ws
+# The URL will be sanitized to ensure the correct ws/wss scheme
 
 # Logging
 LOG_LEVEL=debug
