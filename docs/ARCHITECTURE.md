@@ -15,7 +15,7 @@ It guides future contributors (humans + AI) with consistent context and reasonin
 - **Framework**: Flutter (latest stable)
 - **Language**: Dart
 - **Architecture Pattern**: Clean Architecture (presentation / domain / data)
-- **State Management**: Riverpod (can swap to Provider, Bloc)
+- **State Management**: BLoC
 - **Routing**: `go_router`
 - **Tests**: Unit, Widget, Integration (`flutter_test`, `mocktail`)
 
