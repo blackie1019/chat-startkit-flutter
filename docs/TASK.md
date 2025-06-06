@@ -16,6 +16,7 @@ It's used by both human developers and AI agents.
 - [ ] Setup `BottomNavigationBar` with 3 tabs
 - [ ] Implement banner carousel on HomePage
 - [ ] Connect navigation state with content rendering
+- [x] Add basic unit tests for Message model and EncryptionService (2025-06-06)
 
 ---
 
