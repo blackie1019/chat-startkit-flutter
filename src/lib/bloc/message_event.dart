@@ -34,3 +34,7 @@ class _ErrorReceived extends MessageEvent {
   @override
   List<Object?> get props => [error];
 }
+
+class ReconnectWebSocket extends MessageEvent {
+  const ReconnectWebSocket();
+}
