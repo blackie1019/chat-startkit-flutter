@@ -12,7 +12,7 @@ It guides future contributors (humans + AI) with consistent context and reasonin
 
 ## 🧱 Tech Stack
 
-- **Framework**: Flutter (latest stable)
+- **Framework**: Flutter 3.32.0
 - **Language**: Dart
 - **Architecture Pattern**: Clean Architecture (presentation / domain / data)
 - **State Management**: BLoC

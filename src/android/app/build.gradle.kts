@@ -7,7 +7,8 @@ plugins {
 
 android {
     namespace = "com.example.chat_startkit_flutter"
-    compileSdk = flutter.compileSdkVersion
+    // Updated to match 2022 Android OS level (API 33)
+    compileSdk = 33
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -24,8 +25,9 @@ android {
         applicationId = "com.example.chat_startkit_flutter"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        // Minimum supported Android OS version from 2022
+        minSdk = 33
+        targetSdk = 33
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
