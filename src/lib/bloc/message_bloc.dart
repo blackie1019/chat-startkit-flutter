@@ -21,16 +21,22 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
     on<SendMessage>(_onSend);
     on<_ReceivedMessage>(_onReceived);
     on<_ErrorReceived>(_onError);
+    on<ReconnectWebSocket>(_onReconnect);
   }
 
   Future<void> _onLoad(LoadMessages event, Emitter<MessageState> emit) async {
     final cached = await storageService.getCachedMessages();
-    emit(state.copyWith(messages: cached));
-    await socketService.connect();
-    _socketSub = socketService.messages.listen(
-      (message) => add(_ReceivedMessage(message)),
-      onError: (error) => add(_ErrorReceived(error.toString())),
-    );
+    emit(state.copyWith(messages: cached, isConnecting: true, error: null));
+    try {
+      await socketService.connect();
+      emit(state.copyWith(isConnecting: false));
+      _socketSub = socketService.messages.listen(
+        (message) => add(_ReceivedMessage(message)),
+        onError: (error) => add(_ErrorReceived(error.toString())),
+      );
+    } catch (e) {
+      add(const ReconnectWebSocket());
+    }
   }
 
   Future<void> _onSend(SendMessage event, Emitter<MessageState> emit) async {
@@ -44,11 +50,23 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
       _ReceivedMessage event, Emitter<MessageState> emit) async {
     final updated = List<Message>.from(state.messages)..add(event.message);
     await storageService.cacheMessages(updated);
-    emit(state.copyWith(messages: updated));
+    emit(state.copyWith(messages: updated, isConnecting: false));
   }
 
   Future<void> _onError(_ErrorReceived event, Emitter<MessageState> emit) async {
-    emit(state.copyWith(error: event.error));
+    emit(state.copyWith(error: event.error, isConnecting: true));
+    add(const ReconnectWebSocket());
+  }
+
+  Future<void> _onReconnect(
+      ReconnectWebSocket event, Emitter<MessageState> emit) async {
+    emit(state.copyWith(isConnecting: true));
+    try {
+      await socketService.reconnect();
+      emit(state.copyWith(isConnecting: false));
+    } catch (_) {
+      emit(state.copyWith(isConnecting: true));
+    }
   }
 
   @override
