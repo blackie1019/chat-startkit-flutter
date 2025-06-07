@@ -16,7 +16,7 @@ A modern Flutter chat application built with Clean Architecture and the BLoC pat
 
 ### Prerequisites
 
-- Flutter SDK (latest stable version)
+- Flutter SDK **3.32.0**
 - Dart SDK (included with Flutter)
 
 ### Installation
