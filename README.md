@@ -38,22 +38,30 @@ A modern Flutter chat application built with Clean Architecture and the BLoC pat
    ```
 
 4. Run the app:
-   - For Web (Chrome):
-     ```bash
-     flutter run -d chrome
-     ```
-   - For iOS (Simulator):
-     ```bash
-     flutter run -d ios
-     ```
-   - For Android (Emulator/Device):
-     ```bash
-     flutter run -d android
-     ```
-   - For all connected devices:
-     ```bash
-     flutter run -d all
-     ```
+  - For Web (Chrome):
+    ```bash
+    flutter run -d chrome
+    ```
+  - For iOS (Simulator):
+    ```bash
+    flutter run -d ios
+    ```
+  - For Android (Emulator/Device):
+    ```bash
+    flutter run -d android
+    ```
+  - For all connected devices:
+    ```bash
+    flutter run -d all
+    ```
+
+### Platform Support
+
+This project targets modern operating systems released in 2022 and later.
+
+- **iOS**: minimum deployment target **iOS 16**
+- **Android**: minimum SDK level **33** (Android 13)
+- **Web**: tested on modern Chromium‑based browsers
 
 ## 📝 Environment Variables
 
