@@ -1,6 +1,6 @@
 # chat_startkit_flutter
 
-A new Flutter project.
+A new Flutter project built with **Flutter 3.32.0**.
 
 ## Getting Started
 
